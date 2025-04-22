@@ -6,4 +6,4 @@
 class A : public Base {
 };
 
-#endif // A_HPP
+#endif

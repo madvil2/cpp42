@@ -48,10 +48,10 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
     outfile << " /~~         ~~\\ " << std::endl;
     outfile << "{               }" << std::endl;
     outfile << " \\  _-     -_  / " << std::endl;
-    outfile << "   ~  \\\\ 
+    outfile << "   ~  \\\\ //  ~   " << std::endl;
     outfile << "_- -   | | _- _  " << std::endl;
     outfile << "  _ -  | |   -_  " << std::endl;
-    outfile << "      
+    outfile << "      // \\\\      " << std::endl;
     outfile << std::endl;
     outfile << "        ###        " << std::endl;
     outfile << "       #o###       " << std::endl;

@@ -9,4 +9,4 @@ struct Data {
     double value;
 };
 
-#endif // DATA_HPP
+#endif

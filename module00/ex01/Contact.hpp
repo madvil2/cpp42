@@ -13,8 +13,7 @@ private:
 
 public:
     Contact();
-    
-    // Setters
+
     void setFirstName(const std::string &firstName);
     void setLastName(const std::string &lastName);
     void setNickname(const std::string &nickname);

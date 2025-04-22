@@ -5,7 +5,6 @@
 #include <iostream>
 #include <exception>
 
-// Forward declaration to avoid circular dependency
 class Bureaucrat;
 
 class AForm {
@@ -17,30 +16,24 @@ private:
     std::string _target;
 
 public:
-    // Orthodox Canonical Form
     AForm();
     AForm(const std::string& name, int gradeToSign, int gradeToExecute, const std::string& target);
     AForm(const AForm& other);
     AForm& operator=(const AForm& other);
     virtual ~AForm();
 
-    // Getters
     std::string getName() const;
     bool isSigned() const;
     int getGradeToSign() const;
     int getGradeToExecute() const;
     std::string getTarget() const;
 
-    // Sign function
     void beSigned(const Bureaucrat& bureaucrat);
     
-    // Execute function (pure virtual)
     virtual void execute(Bureaucrat const & executor) const = 0;
     
-    // Check if form can be executed
     void checkExecuteRequirements(Bureaucrat const & executor) const;
 
-    // Exception classes
     class GradeTooHighException : public std::exception {
     public:
         virtual const char* what() const throw();
@@ -57,7 +50,6 @@ public:
     };
 };
 
-// Insertion operator overload
 std::ostream& operator<<(std::ostream& os, const AForm& form);
 
-#endif // AFORM_HPP
+#endif

@@ -3,13 +3,11 @@
 #include <iomanip>
 #include <ctime>
 
-// Initialize static members
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-// Static methods
 int Account::getNbAccounts(void) { return _nbAccounts; }
 int Account::getTotalAmount(void) { return _totalAmount; }
 int Account::getNbDeposits(void) { return _totalNbDeposits; }
@@ -38,8 +36,7 @@ void Account::displayAccountsInfos(void) {
               << "withdrawals:" << _totalNbWithdrawals << std::endl;
 }
 
-// Constructor
-Account::Account(int initial_deposit) : 
+Account::Account(int initial_deposit) :
     _accountIndex(_nbAccounts),
     _amount(initial_deposit),
     _nbDeposits(0),
@@ -53,7 +50,6 @@ Account::Account(int initial_deposit) :
               << "created" << std::endl;
 }
 
-// Destructor
 Account::~Account(void) {
     _displayTimestamp();
     std::cout << "index:" << _accountIndex << ";"

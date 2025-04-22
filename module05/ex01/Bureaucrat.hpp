@@ -5,7 +5,6 @@
 #include <iostream>
 #include <exception>
 
-// Forward declaration to avoid circular dependency
 class Form;
 
 class Bureaucrat {
@@ -26,7 +25,6 @@ public:
     void incrementGrade();
     void decrementGrade();
 
-    // Sign form function
     void signForm(Form& form);
 
     class GradeTooHighException : public std::exception {

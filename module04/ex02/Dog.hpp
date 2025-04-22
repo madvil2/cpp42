@@ -16,7 +16,6 @@ public:
 
     virtual void makeSound(void) const;
     
-    // Methods to access brain ideas
     std::string getBrainIdea(int index) const;
     void setBrainIdea(int index, std::string idea);
 };
