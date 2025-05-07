@@ -5,13 +5,14 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <typeinfo>
 
 
 Base* generate(void) {
-    
+
     int random = std::rand() % 3;
 
-    
+
     switch (random) {
         case 0:
             std::cout << "Generated an instance of A" << std::endl;
@@ -23,13 +24,13 @@ Base* generate(void) {
             std::cout << "Generated an instance of C" << std::endl;
             return new C();
         default:
-            return NULL; 
+            return NULL;
     }
 }
 
 
 void identify(Base* p) {
-    
+
     if (dynamic_cast<A*>(p) != NULL) {
         std::cout << "A" << std::endl;
     } else if (dynamic_cast<B*>(p) != NULL) {
@@ -43,48 +44,48 @@ void identify(Base* p) {
 
 
 void identify(Base& p) {
-    
-    
+
+
     try {
         A& a = dynamic_cast<A&>(p);
-        (void)a; 
+        (void)a;
         std::cout << "A" << std::endl;
         return;
     } catch (std::bad_cast&) {
-        
+
     }
 
     try {
         B& b = dynamic_cast<B&>(p);
-        (void)b; 
+        (void)b;
         std::cout << "B" << std::endl;
         return;
     } catch (std::bad_cast&) {
-        
+
     }
 
     try {
         C& c = dynamic_cast<C&>(p);
-        (void)c; 
+        (void)c;
         std::cout << "C" << std::endl;
         return;
     } catch (std::bad_cast&) {
-        
+
         std::cout << "Unknown type" << std::endl;
     }
 }
 
 int main() {
-    
+
     std::srand(static_cast<unsigned int>(std::time(NULL)));
 
-    
+
     std::cout << "=== Testing generate function ===" << std::endl;
     Base* ptr1 = generate();
     Base* ptr2 = generate();
     Base* ptr3 = generate();
 
-    
+
     std::cout << "\n=== Testing identify function with pointers ===" << std::endl;
     std::cout << "ptr1 is of type: ";
     identify(ptr1);
@@ -93,7 +94,7 @@ int main() {
     std::cout << "ptr3 is of type: ";
     identify(ptr3);
 
-    
+
     std::cout << "\n=== Testing identify function with references ===" << std::endl;
     std::cout << "ptr1 is of type: ";
     identify(*ptr1);
@@ -102,7 +103,7 @@ int main() {
     std::cout << "ptr3 is of type: ";
     identify(*ptr3);
 
-    
+
     delete ptr1;
     delete ptr2;
     delete ptr3;
